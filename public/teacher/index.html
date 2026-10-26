@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel del Profesor — Lenguaje: Laberinto Crey</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="teacher.css">
+  <style>
+    .zone-box {
+      background: #182844;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .zone-box-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #38bdf8;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .challenge-card {
+      background: #0f1c30;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 0.75rem;
+      border-left: 4px solid #ec4899;
+    }
+    .challenge-type-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      background: #ec4899;
+      color: white;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .badge-recoleccion { background: #059669; }
+    .badge-clasificar { background: #8b5cf6; }
+    .badge-completar { background: #f59e0b; color: #000; }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="brand">
+        <img src="/assets/sprites/crey.png" alt="Crey Mascot" class="brand-logo" style="width: 48px; height: 52px; object-fit: contain;">
+        <div>
+          <h1>Panel de Control Docente — Lenguaje</h1>
+          <p class="subtitle">Juego 2: Laberinto de Recolección &bull; Sesión en Red</p>
+        </div>
+      </div>
+      <div class="header-status">
+        <div id="sessionBadge" class="session-badge hidden">
+          <span class="badge-dot"></span>
+          <span>PIN: <strong id="activePinDisplay">------</strong></span>
+          <span class="badge-divider">|</span>
+          <span id="activeSubjectDisplay">Lenguaje</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="nav-steps">
+      <button class="step-btn active" data-step="1" id="tabStep1">
+        <span class="step-num">1</span> Crear Sesión
+      </button>
+      <button class="step-btn" data-step="2" id="tabStep2">
+        <span class="step-num">2</span> Cargar Contenido
+      </button>
+      <button class="step-btn" data-step="3" id="tabStep3">
+        <span class="step-num">3</span> Resultados en Vivo
+      </button>
+      <button class="step-btn" data-step="4" id="tabStep4">
+        <span class="step-num">4</span> Resumen y Exportación
+      </button>
+    </nav>
+
+    <!-- Main Content Screens -->
+    <main class="main-content">
+      <!-- SCREEN 1: CREAR SESIÓN -->
+      <section id="screen1" class="screen-view active">
+        <div class="card card-hero">
+          <div class="card-header">
+            <h2>Configuración de Nueva Sesión de Lenguaje</h2>
+            <p>Personaliza los datos de tu clase y genera el código PIN para que los alumnos ingresen.</p>
+          </div>
+          <form id="createSessionForm" class="form-grid">
+            <div class="form-group">
+              <label for="subjectSelect">Materia / Videojuego</label>
+              <select id="subjectSelect" class="form-control" required>
+                <option value="language" selected>🎮 Juego 2 — Lenguaje (Laberinto de Recolección)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="sessionName">Nombre del Grupo / Aula</label>
+              <input type="text" id="sessionName" class="form-control" placeholder="Ej: 5to Primaria - Comunicación y Lenguaje" value="5to Primaria - Lenguaje" required>
+            </div>
+
+            <div class="form-group">
+              <label for="customPin">Código de Sesión (Opcional - 4 a 6 caracteres)</label>
+              <input type="text" id="customPin" class="form-control pin-input" maxlength="6" placeholder="Auto-generar (Ej: LENG50)">
+              <small class="help-text">Déjalo en blanco para generar un código PIN aleatorio automáticamente.</small>
+            </div>
+
+            <div class="form-group">
+              <label>Fecha de la Sesión</label>
+              <input type="text" id="sessionDate" class="form-control" readonly>
+            </div>
+
+            <div class="form-actions full-width">
+              <button type="submit" class="btn btn-primary btn-lg">
+                <span>Continuar a Revisión de Contenido</span> &rarr;
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- SCREEN 2: CARGAR CONTENIDO -->
+      <section id="screen2" class="screen-view">
+        <div class="card">
+          <div class="card-header flex-between">
+            <div>
+              <h2>Banco de Contenido y Zonas del Laberinto</h2>
+              <p>Revisa las palabras, oraciones y puertas que Crey encontrará en cada submundo.</p>
+            </div>
+            <div class="action-row">
+              <button type="button" id="btnResetDefaultContent" class="btn btn-outline">Restablecer Predeterminado</button>
+            </div>
+          </div>
+
+          <div id="contentEditorContainer" class="content-editor-container">
+            <!-- Dynamic Topics / Questions injected by JS -->
+          </div>
+
+          <div class="form-actions flex-between card-footer">
+            <button type="button" class="btn btn-outline" onclick="goToStep(1)">&larr; Volver</button>
+            <button type="button" id="btnLaunchLiveSession" class="btn btn-success btn-lg">
+              🚀 Iniciar Sesión en Vivo (Generar PIN)
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCREEN 3: RESULTADOS EN VIVO -->
+      <section id="screen3" class="screen-view">
+        <div class="live-dashboard-header">
+          <div class="pin-display-box">
+            <span class="pin-label">CÓDIGO PIN PARA LOS ALUMNOS</span>
+            <div class="pin-code" id="liveRoomPin">------</div>
+            <span class="pin-sub">Entrar a: <strong>http://localhost:3000/game2-language/</strong></span>
+          </div>
+
+          <div class="stats-summary-cards">
+            <div class="stat-card">
+              <div class="stat-value" id="statConnectedCount">0</div>
+              <div class="stat-label">Alumnos Conectados</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" id="statCompletedCount">0</div>
+              <div class="stat-label">Zonas Completadas</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" id="statGroupAvgScore">0</div>
+              <div class="stat-label">Puntaje Promedio</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card table-card">
+          <div class="card-header flex-between">
+            <div class="table-title">
+              <h2>Monitoreo en Tiempo Real del Laberinto</h2>
+              <span class="live-indicator"><span class="pulsing-circle"></span> Sesión activa</span>
+            </div>
+            <div class="table-controls">
+              <label for="sortSelector">Ordenar por:</label>
+              <select id="sortSelector" class="form-control form-control-sm">
+                <option value="score_desc">Mayor Puntaje</option>
+                <option value="name_asc">Nombre (A-Z)</option>
+                <option value="lives_desc">Más Vidas</option>
+                <option value="status">Progreso / Zonas</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="data-table" id="studentsLiveTable">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Alumno</th>
+                  <th>Zona Actual</th>
+                  <th>Vidas</th>
+                  <th>Puntaje</th>
+                  <th>Aciertos</th>
+                  <th>Errores</th>
+                  <th>Tema más crítico</th>
+                  <th>Última Actividad</th>
+                </tr>
+              </thead>
+              <tbody id="studentsTableBody">
+                <tr class="empty-row">
+                  <td colspan="9">Esperando que los alumnos ingresen con el código PIN...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="card-footer flex-between">
+            <span class="text-muted">La telemetría del laberinto se actualiza al instante vía WebSocket.</span>
+            <button type="button" id="btnCloseSession" class="btn btn-danger">
+              🛑 Finalizar Sesión y Ver Resumen
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCREEN 4: RESUMEN Y EXPORTACIÓN -->
+      <section id="screen4" class="screen-view">
+        <div class="card">
+          <div class="card-header flex-between">
+            <div>
+              <h2>Resumen Pedagógico de la Clase</h2>
+              <p id="summarySubtitle">Diagnóstico consolidado de lenguaje por temas y alumnos.</p>
+            </div>
+            <button type="button" id="btnExportCSV" class="btn btn-primary btn-lg">
+              📥 Descargar Reporte CSV / Excel
+            </button>
+          </div>
+
+          <div class="summary-metrics-grid">
+            <div class="metric-box">
+              <span class="metric-title">Alumnos Evaluados</span>
+              <span class="metric-big" id="finalTotalStudents">0</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-title">Puntaje Promedio Grupal</span>
+              <span class="metric-big text-primary" id="finalAvgScore">0 pts</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-title">Tema con Mayor Dificultad</span>
+              <span class="metric-big text-danger" id="finalWorstTopic">N/A</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-title">Tasa de Aciertos Global</span>
+              <span class="metric-big text-success" id="finalAccuracy">0%</span>
+            </div>
+          </div>
+
+          <!-- Podio / Ranking -->
+          <div class="ranking-section">
+            <h3>🏆 Podio de Exploradores del Laberinto</h3>
+            <div class="podium-container" id="podiumContainer">
+              <!-- Top 3 cards injected by JS -->
+            </div>
+          </div>
+
+          <div class="table-responsive" style="margin-top: 2rem;">
+            <h3>Detalle por Alumno</h3>
+            <table class="data-table" id="summaryTable">
+              <thead>
+                <tr>
+                  <th>Pos.</th>
+                  <th>Alumno</th>
+                  <th>Zonas Superadas</th>
+                  <th>Puntaje</th>
+                  <th>Aciertos</th>
+                  <th>Errores</th>
+                  <th>% Precisión</th>
+                  <th>Tema más crítico</th>
+                </tr>
+              </thead>
+              <tbody id="summaryTableBody">
+              </tbody>
+            </table>
+          </div>
+
+          <div class="card-footer flex-between">
+            <button type="button" class="btn btn-outline" onclick="goToStep(1)">Crear Nueva Sesión</button>
+            <button type="button" id="btnExportCSV2" class="btn btn-primary">
+              📥 Exportar como CSV
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="teacher.js"></script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juego 2: Lenguaje - Laberinto de Recolección (Crey)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #09131e;
+      --card: #152238;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --primary: #38bdf8;
+      --accent: #ec4899;
+      --success: #10b981;
+      --gold: #f59e0b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: radial-gradient(circle at 50% 25%, #1a304d 0%, #070d14 100%);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .hub-container {
+      max-width: 960px;
+      width: 100%;
+      text-align: center;
+    }
+    .hero-logo {
+      width: 96px;
+      height: 105px;
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 10px 25px rgba(236, 72, 153, 0.45));
+    }
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #38bdf8, #f472b6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .tagline {
+      color: var(--muted);
+      font-size: 1.15rem;
+      margin-bottom: 2.5rem;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.75rem;
+      text-align: left;
+    }
+    .hub-card {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
+      padding: 1.85rem;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+      position: relative;
+      overflow: hidden;
+    }
+    .hub-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: transparent;
+      transition: all 0.25s;
+    }
+    .card-lang::before { background: linear-gradient(90deg, #ec4899, #38bdf8); }
+    .card-teacher::before { background: linear-gradient(90deg, #2563eb, #10b981); }
+    .card-gdevelop::before { background: linear-gradient(90deg, #f59e0b, #ec4899); }
+
+    .hub-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(236, 72, 153, 0.22);
+      border-color: rgba(236, 72, 153, 0.5);
+    }
+    .card-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      margin-bottom: 1.1rem;
+    }
+    .badge-lang { background: #ec4899; color: #fff; }
+    .badge-teacher { background: #2563eb; color: #fff; }
+    .badge-gdevelop { background: #f59e0b; color: #000; }
+
+    .card-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.45rem;
+      font-weight: 800;
+      margin-bottom: 0.6rem;
+    }
+    .card-desc {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
+    .card-btn {
+      font-weight: 700;
+      color: var(--primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1rem;
+      margin-top: auto;
+    }
+    .hub-card:hover .card-btn {
+      color: #f472b6;
+    }
+    .feature-list {
+      list-style: none;
+      margin-bottom: 1.25rem;
+      font-size: 0.85rem;
+      color: #cbd5e1;
+    }
+    .feature-list li {
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="hub-container">
+    <img src="/assets/sprites/crey.png" alt="Crey Robot" class="hero-logo">
+    <h1>Juego 2 — Lenguaje: Laberinto</h1>
+    <p class="tagline">
+      Acompaña a <strong>Crey</strong> a través de laberintos temáticos con 3 mecánicas:
+      Recolección de palabras, Puertas de clasificación y Completar oraciones con reporte en vivo para el profesor.
+    </p>
+
+    <div class="cards-grid">
+      <!-- Juego Alumno -->
+      <a href="/game2-language/" class="hub-card card-lang">
+        <div>
+          <span class="card-badge badge-lang">🎮 Alumno (Juego Web)</span>
+          <h2 class="card-title">Laberinto de Lenguaje</h2>
+          <p class="card-desc">Movimiento en 4 direcciones, recolección de sustantivos/adjetivos, puertas bifurcadas y oraciones incompletas.</p>
+          <ul class="feature-list">
+            <li>✅ 3 Vidas + Item de Vida Extra</li>
+            <li>✅ Submundo 2 (Sustantivos & Verbos)</li>
+            <li>✅ Submundo 4 (Comprensión de Oraciones)</li>
+            <li>✅ Conexión con PIN de clase en vivo</li>
+          </ul>
+        </div>
+        <div class="card-btn">Iniciar Juego de Lenguaje &rarr;</div>
+      </a>
+
+      <!-- Panel Profesor -->
+      <a href="/teacher/" class="hub-card card-teacher">
+        <div>
+          <span class="card-badge badge-teacher">👨‍🏫 Control Docente</span>
+          <h2 class="card-title">Panel del Profesor</h2>
+          <p class="card-desc">Crea la sesión con PIN, personaliza palabras/oraciones por zona, supervisa en tiempo real y descarga reporte en CSV.</p>
+          <ul class="feature-list">
+            <li>✅ Código PIN para el aula</li>
+            <li>✅ Banco de palabras editable</li>
+            <li>✅ Monitor de vidas y errores en vivo</li>
+            <li>✅ Podio y exportación Excel/CSV</li>
+          </ul>
+        </div>
+        <div class="card-btn">Abrir Panel Docente &rarr;</div>
+      </a>
+
+      <!-- GDevelop 5 Project Info -->
+      <div class="hub-card card-gdevelop">
+        <div>
+          <span class="card-badge badge-gdevelop">🛠️ GDevelop 5</span>
+          <h2 class="card-title">Proyecto GDevelop Nativo</h2>
+          <p class="card-desc">Proyecto oficial listo para abrir y editar en el editor de escritorio o web de GDevelop 5.</p>
+          <ul class="feature-list">
+            <li>📁 Ubicado en: <code>gdevelop-project/game.json</code></li>
+            <li>🕹️ Top-Down Movement nativo</li>
+            <li>🧩 Hojas de eventos agrupadas</li>
+            <li>🎨 Fondos de jardín y mundos integrados</li>
+          </ul>
+        </div>
+        <div class="card-btn" style="color: var(--gold);">Abrir en GDevelop 5 &rarr;</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

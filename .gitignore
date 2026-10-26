@@ -1,0 +1,22 @@
+# Dependencias de Node.js
+node_modules/
+package-lock.json
+
+# Archivos de depuración y logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Archivos de entorno y configuración local
+.env
+.env.local
+
+# Archivos temporales y editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Archivos de sistema operativo
+.DS_Store
+Thumbs.db

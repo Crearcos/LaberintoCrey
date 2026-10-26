@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Crey: Laberinto de Lenguaje</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="gameContainer">
+    <!-- TOP HUD -->
+    <header id="hudTop">
+      <div class="hud-section">
+        <img src="/assets/sprites/crey.png" alt="Crey" style="width: 36px; height: 40px; object-fit: contain;">
+        <span id="currentZoneBadge" class="zone-badge">Zona 1: Sustantivos y Verbos</span>
+      </div>
+
+      <div class="hud-section">
+        <div class="hud-item">
+          <span class="hud-label">Vidas</span>
+          <div class="hearts-container" id="heartsContainer">
+            <img src="/assets/sprites/heart.png" class="heart-icon" id="heart1" alt="Vida 1">
+            <img src="/assets/sprites/heart.png" class="heart-icon" id="heart2" alt="Vida 2">
+            <img src="/assets/sprites/heart.png" class="heart-icon" id="heart3" alt="Vida 3">
+          </div>
+        </div>
+
+        <div class="hud-item">
+          <span class="hud-label">Puntaje</span>
+          <span id="hudScore" class="score-display">0</span>
+        </div>
+
+        <div class="hud-item" id="networkBadge" style="display:none; font-size:0.8rem; background:rgba(37,99,235,0.25); border:1px solid #3b82f6; padding:0.25rem 0.6rem; border-radius:999px;">
+          📡 PIN: <strong id="hudPinDisplay" style="color:#60a5fa;">------</strong>
+        </div>
+      </div>
+    </header>
+
+    <!-- INSTRUCTION BANNER -->
+    <div id="instructionBanner">
+      <span id="instructionIcon">🎯</span>
+      <span id="instructionText">Recoge todos los sustantivos y evita los distractores.</span>
+    </div>
+
+    <!-- CANVAS VIEWPORT -->
+    <div id="canvasWrapper">
+      <canvas id="gameCanvas"></canvas>
+
+      <!-- FLOATING SENTENCE BANNER (Mecánica C) -->
+      <div id="floatingSentenceBanner">
+        <span id="floatingSentenceText">La flor es muy <span class="blank-space">______</span>.</span>
+      </div>
+
+      <!-- TOUCH CONTROLS (for tablets and touchscreens) -->
+      <div id="touchControls">
+        <div class="dpad">
+          <button class="dpad-btn dpad-up" id="btnUp">▲</button>
+          <button class="dpad-btn dpad-left" id="btnLeft">◀</button>
+          <button class="dpad-btn dpad-right" id="btnRight">▶</button>
+          <button class="dpad-btn dpad-down" id="btnDown">▼</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL 1: LOGIN / WELCOME -->
+    <div id="loginModal" class="modal-overlay">
+      <div class="modal-card">
+        <img src="/assets/sprites/crey.png" alt="Crey" class="modal-logo">
+        <h2 class="modal-title">¡Bienvenido a Crey Lenguaje!</h2>
+        <p class="modal-sub">Explora el laberinto, clasifica palabras por puertas y completa oraciones para ganar puntos.</p>
+
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="playerNameInput">Tu Nombre o Apodo</label>
+            <input type="text" id="playerNameInput" class="form-input" placeholder="Ej: Valentina" required maxlength="18">
+          </div>
+
+          <div class="form-group">
+            <label for="roomPinInput">Código PIN del Aula (Opcional)</label>
+            <input type="text" id="roomPinInput" class="form-input" placeholder="Ej: LENG88 (o vacío para práctica libre)" maxlength="6" style="text-transform:uppercase; letter-spacing:2px; font-weight:800; text-align:center;">
+          </div>
+
+          <button type="submit" class="btn-start">¡Entrar al Laberinto! 🚀</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- MODAL 2: ZONE COMPLETED / TRANSITION -->
+    <div id="transitionModal" class="modal-overlay hidden">
+      <div class="modal-card">
+        <div style="font-size: 3rem; margin-bottom: 0.5rem;">🌟</div>
+        <h2 class="modal-title" style="color: #38bdf8;">¡Zona 1 Superada!</h2>
+        <p class="modal-sub" id="transitionSubtitle">Has recolectado todos los sustantivos y clasificado la palabra correctamente.</p>
+        <p style="font-size: 1.1rem; font-weight: 700; color: #f59e0b; margin-bottom: 1.5rem;">¡Portal a la Zona 2 Desbloqueado!</p>
+        <button id="btnContinueZone2" class="btn-start">Continuar a Zona 2 &rarr;</button>
+      </div>
+    </div>
+
+    <!-- MODAL 3: GAME OVER -->
+    <div id="gameOverModal" class="modal-overlay hidden">
+      <div class="modal-card">
+        <div style="font-size: 3.2rem; margin-bottom: 0.5rem;">💀</div>
+        <h2 class="modal-title" style="color: #ef4444;">¡Fin de la Partida!</h2>
+        <p class="modal-sub">Te has quedado sin vidas en el laberinto. ¡No te rindas y repasa las palabras!</p>
+
+        <div class="results-grid">
+          <div class="result-box">
+            <div class="result-box-label">Puntaje Obtenido</div>
+            <div class="result-box-value" id="goScore" style="color:#f59e0b;">0</div>
+          </div>
+          <div class="result-box">
+            <div class="result-box-label">Zonas Completadas</div>
+            <div class="result-box-value" id="goZones" style="color:#38bdf8;">0 / 2</div>
+          </div>
+        </div>
+
+        <div class="topic-breakdown" id="goTopicBreakdown">
+          <!-- Injected by JS -->
+        </div>
+
+        <button id="btnRetryGame" class="btn-start" style="background: linear-gradient(135deg, #ef4444, #f59e0b);">Reintentar Laberinto 🔄</button>
+      </div>
+    </div>
+
+    <!-- MODAL 4: VICTORY / FINAL RESULTS -->
+    <div id="victoryModal" class="modal-overlay hidden">
+      <div class="modal-card">
+        <div style="font-size: 3.5rem; margin-bottom: 0.5rem;">🏆</div>
+        <h2 class="modal-title" style="background: linear-gradient(135deg, #f59e0b, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">¡Misión Completada!</h2>
+        <p class="modal-sub">¡Felicitaciones! Has recorrido con éxito todas las zonas temáticas del laberinto.</p>
+
+        <div class="results-grid">
+          <div class="result-box">
+            <div class="result-box-label">Puntaje Final</div>
+            <div class="result-box-value" id="vicScore" style="color:#f59e0b;">0</div>
+          </div>
+          <div class="result-box">
+            <div class="result-box-label">Vidas Restantes</div>
+            <div class="result-box-value" id="vicLives" style="color:#10b981;">3 / 3</div>
+          </div>
+        </div>
+
+        <div style="text-align: left; margin: 0.8rem 0 0.4rem; font-size: 0.85rem; font-weight: 700; color: #94a3b8; text-transform: uppercase;">
+          Desglose Pedagógico de Aciertos y Errores:
+        </div>
+        <div class="topic-breakdown" id="vicTopicBreakdown">
+          <!-- Injected by JS -->
+        </div>
+
+        <button id="btnPlayAgain" class="btn-start" style="margin-top: 1rem;">Jugar Nuevamente 🎮</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/common/audio.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

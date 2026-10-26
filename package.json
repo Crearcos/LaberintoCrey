@@ -1,0 +1,16 @@
+{
+  "name": "videojuego-lenguaje",
+  "version": "1.0.0",
+  "description": "Videojuego Educativo Crey - Lenguaje: Laberinto de Recolección",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": ["education", "game", "language", "gdevelop", "crey"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1",
+    "ws": "^8.21.3"
+  }
+}

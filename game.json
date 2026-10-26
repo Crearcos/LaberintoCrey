@@ -1,0 +1,1254 @@
+{
+  "firstLayout": "Zona1_SustantivosVerbos",
+  "gdVersion": {
+    "build": 282,
+    "major": 5,
+    "minor": 6,
+    "revision": 0
+  },
+  "initialGDVersion": "5.6.280",
+  "properties": {
+    "adaptGameResolutionAtRuntime": true,
+    "antialiasingMode": "MSAA",
+    "antialisingEnabledOnMobile": false,
+    "folderProject": false,
+    "orientation": "landscape",
+    "packageName": "com.crey.educativo.lenguaje.laberinto",
+    "pixelsRounding": false,
+    "projectUuid": "153a664c-95b5-48c5-864f-7ea4c8325bf6",
+    "scaleMode": "linear",
+    "sizeOnStartupMode": "adaptWidth",
+    "templateSlug": "",
+    "version": "1.0.0",
+    "name": "Lenguaje - Laberinto de Recoleccion",
+    "description": "Videojuego educativo Crey Lenguaje: Laberinto de recoleccion en 4 direcciones.",
+    "author": "Crey Educativo",
+    "windowWidth": 1280,
+    "windowHeight": 720,
+    "latestCompilationDirectory": "",
+    "maxFPS": 60,
+    "minFPS": 20,
+    "verticalSync": false,
+    "platformSpecificAssets": {},
+    "loadingScreen": {
+      "backgroundColor": 0,
+      "backgroundFadeInDuration": 0.2,
+      "backgroundImageResourceName": "",
+      "gdevelopLogoStyle": "light",
+      "logoAndProgressFadeInDuration": 0.2,
+      "logoAndProgressLogoFadeInDelay": 0,
+      "minDuration": 1.5,
+      "progressBarColor": 16777215,
+      "progressBarHeight": 20,
+      "progressBarMaxWidth": 200,
+      "progressBarMinWidth": 40,
+      "progressBarWidthPercent": 30,
+      "showGDevelopSplash": true,
+      "showProgressBar": true
+    },
+    "watermark": {
+      "placement": "bottom-left",
+      "showWatermark": true
+    },
+    "authorIds": [
+      "gefnY9HGrZfrDpCwSydOd523pOz1"
+    ],
+    "authorUsernames": [
+      "donatoubs"
+    ],
+    "categories": [],
+    "playableDevices": [],
+    "extensionProperties": []
+  },
+  "resources": {
+    "resources": [
+      {
+        "file": "crey.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "crey.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "heart.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "heart.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "vidaextra.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "vidaextra.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Acierto.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Acierto.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Error.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Error.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "submundo2_sustantivos_verbos.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "submundo2_sustantivos_verbos.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "submundo4_comprension_oraciones.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "submundo4_comprension_oraciones.png",
+        "smoothed": true,
+        "userAdded": true
+      }
+    ]
+  },
+  "objects": [],
+  "objectsFolderStructure": {
+    "folderName": "__root",
+    "folderContent": []
+  },
+  "objectsGroups": [],
+  "variables": [
+    {
+      "name": "Vidas",
+      "type": "number",
+      "value": 3
+    },
+    {
+      "name": "Puntaje",
+      "type": "number",
+      "value": 0
+    },
+    {
+      "name": "ZonaActual",
+      "type": "number",
+      "value": 1
+    },
+    {
+      "name": "AciertosSustantivos",
+      "type": "number",
+      "value": 0
+    },
+    {
+      "name": "ErroresSustantivos",
+      "type": "number",
+      "value": 0
+    },
+    {
+      "name": "AciertosVerbos",
+      "type": "number",
+      "value": 0
+    },
+    {
+      "name": "ErroresVerbos",
+      "type": "number",
+      "value": 0
+    },
+    {
+      "name": "AciertosComprension",
+      "type": "number",
+      "value": 0
+    },
+    {
+      "name": "ErroresComprension",
+      "type": "number",
+      "value": 0
+    },
+    {
+      "name": "AciertosAdjetivos",
+      "type": "number",
+      "value": 0
+    },
+    {
+      "name": "ErroresAdjetivos",
+      "type": "number",
+      "value": 0
+    }
+  ],
+  "layouts": [
+    {
+      "b": 25,
+      "disableInputWhenNotFocused": true,
+      "mangledName": "Zona1_SustantivosVerbos",
+      "name": "Zona1_SustantivosVerbos",
+      "r": 15,
+      "standardSortMethod": true,
+      "stopGDOnItemGroupInstances": false,
+      "title": "Zona 1 - Sustantivos y Verbos",
+      "v": 25,
+      "uiSettings": {
+        "grid": false,
+        "gridType": "rectangular",
+        "gridWidth": 32,
+        "gridHeight": 32,
+        "snap": false
+      },
+      "layers": [
+        {
+          "name": "",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": [],
+          "isLightingLayer": false,
+          "followBaseLayerCamera": false
+        }
+      ],
+      "objects": [
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "Fondo",
+          "persistentUuid": "ac81303b-7ff3-4e2a-ab41-b79ccdb30dc4",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "Default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 1,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "submundo2_sustantivos_verbos.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "Crey",
+          "persistentUuid": "55eccd4c-676e-41e1-a0a3-52660cb3f59d",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "TopDownMovement",
+              "type": "TopDownMovementBehavior::TopDownMovementBehavior",
+              "allowDiagonals": true,
+              "acceleration": 2200,
+              "deceleration": 2200,
+              "maxSpeed": 320,
+              "angleOffset": 0,
+              "rotateObject": false
+            }
+          ],
+          "animations": [
+            {
+              "name": "Idle",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "crey.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "ItemVidaExtra",
+          "persistentUuid": "36f439c9-b9ff-43c7-bc32-4f1fdf6f0fdc",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "Default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.1,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "vidaextra.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "CorazonVida",
+          "persistentUuid": "18446ac2-afce-4292-bb47-87dce830be8d",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "Default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.1,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "heart.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "ItemSustantivo1",
+          "persistentUuid": "8af74d11-d766-4287-94e3-a1fea7f7d4b3",
+          "type": "TextObject::Text",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Arbol (Sustantivo)",
+          "characterSize": 22,
+          "color": "56;189;248",
+          "bold": true
+        },
+        {
+          "assetStoreId": "",
+          "name": "ItemSustantivo2",
+          "persistentUuid": "8016bdae-fcb0-46c0-8c1b-81630232edd1",
+          "type": "TextObject::Text",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Casa (Sustantivo)",
+          "characterSize": 22,
+          "color": "56;189;248",
+          "bold": true
+        },
+        {
+          "assetStoreId": "",
+          "name": "ItemSustantivo3",
+          "persistentUuid": "9dbedffe-cce7-4473-92db-187517bd7330",
+          "type": "TextObject::Text",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Perro (Sustantivo)",
+          "characterSize": 22,
+          "color": "56;189;248",
+          "bold": true
+        },
+        {
+          "assetStoreId": "",
+          "name": "ItemDistractor1",
+          "persistentUuid": "3c6a913d-1c0c-499a-bd99-276c6cf3ccbb",
+          "type": "TextObject::Text",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Correr (Verbo)",
+          "characterSize": 22,
+          "color": "239;68;68",
+          "bold": true
+        },
+        {
+          "assetStoreId": "",
+          "name": "ItemDistractor2",
+          "persistentUuid": "016f1bdc-daa8-4c19-8bb9-00aaa19ffd6e",
+          "type": "TextObject::Text",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Feliz (Adjetivo)",
+          "characterSize": 22,
+          "color": "239;68;68",
+          "bold": true
+        },
+        {
+          "assetStoreId": "",
+          "name": "LetreroClasificacion",
+          "persistentUuid": "0689f229-03c4-467d-a4f6-dcf47e961efa",
+          "type": "TextObject::Text",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Clasifica: Caminar",
+          "characterSize": 24,
+          "color": "236;72;153",
+          "bold": true
+        },
+        {
+          "assetStoreId": "",
+          "name": "PuertaVerbo",
+          "persistentUuid": "e8ae24cd-a836-411d-87aa-0feef7c6afd2",
+          "type": "TextObject::Text",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "[Puerta Verbo - Correcta]",
+          "characterSize": 24,
+          "color": "16;185;129",
+          "bold": true
+        },
+        {
+          "assetStoreId": "",
+          "name": "PuertaSustantivo",
+          "persistentUuid": "dc236bb0-1cfd-41a7-8921-ebab9af07d49",
+          "type": "TextObject::Text",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "[Puerta Sustantivo]",
+          "characterSize": 24,
+          "color": "148;163;184",
+          "bold": true
+        },
+        {
+          "assetStoreId": "",
+          "name": "TextoInstruccion",
+          "persistentUuid": "fc77abb7-e37f-4f85-9af8-5df9d431077e",
+          "type": "TextObject::Text",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Recoge los Sustantivos y entra por la puerta correcta",
+          "characterSize": 20,
+          "color": "255;255;255",
+          "bold": true
+        },
+        {
+          "assetStoreId": "",
+          "name": "TextoPuntaje",
+          "persistentUuid": "ded76311-5b4e-457b-b621-b2a033f7513d",
+          "type": "TextObject::Text",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Puntaje: 0",
+          "characterSize": 24,
+          "color": "245;158;11",
+          "bold": true
+        },
+        {
+          "assetStoreId": "",
+          "name": "PortalSalida",
+          "persistentUuid": "6747fab7-9cbb-4aeb-a4e0-ffd74ec80b93",
+          "type": "TextObject::Text",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "PORTAL A ZONA 2",
+          "characterSize": 24,
+          "color": "236;72;153",
+          "bold": true
+        }
+      ],
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 1122,
+          "keepRatio": true,
+          "layer": "",
+          "name": "Fondo",
+          "persistentUuid": "9faef4e2-0eb6-4f41-8cfe-5aeed2be33f9",
+          "width": 1402,
+          "x": 0,
+          "y": 0,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 72,
+          "keepRatio": true,
+          "layer": "",
+          "name": "Crey",
+          "persistentUuid": "92f0c195-ec8a-420b-b3e1-8938c65a0b59",
+          "width": 64,
+          "x": 670,
+          "y": 920,
+          "zOrder": 15,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 40,
+          "keepRatio": true,
+          "layer": "",
+          "name": "CorazonVida",
+          "persistentUuid": "c1e7f48e-e801-44b2-879e-db48e60a0c84",
+          "width": 40,
+          "x": 50,
+          "y": 30,
+          "zOrder": 25,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "depth": 1,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "TextoPuntaje",
+          "persistentUuid": "e6a55462-df40-4cba-8efa-907942421b0d",
+          "width": 0,
+          "x": 1050,
+          "y": 30,
+          "zOrder": 25,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "depth": 1,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "TextoInstruccion",
+          "persistentUuid": "a58159c3-e9aa-4186-965a-d0b3cd032734",
+          "width": 0,
+          "x": 380,
+          "y": 30,
+          "zOrder": 25,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "depth": 1,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "ItemSustantivo1",
+          "persistentUuid": "121a9fa4-4618-442a-b23f-1832515095e5",
+          "width": 0,
+          "x": 240,
+          "y": 280,
+          "zOrder": 10,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "depth": 1,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "ItemSustantivo2",
+          "persistentUuid": "ec444f79-3213-47e4-accf-4c7670f75fa6",
+          "width": 0,
+          "x": 390,
+          "y": 190,
+          "zOrder": 10,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "depth": 1,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "ItemSustantivo3",
+          "persistentUuid": "3b5458e0-51df-44c2-b1a8-4ee1dd71d98f",
+          "width": 0,
+          "x": 200,
+          "y": 450,
+          "zOrder": 10,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "depth": 1,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "ItemDistractor1",
+          "persistentUuid": "7285d6ca-7604-4321-81af-86488f7ad239",
+          "width": 0,
+          "x": 820,
+          "y": 780,
+          "zOrder": 10,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "depth": 1,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "ItemDistractor2",
+          "persistentUuid": "b9fd9eb8-b39f-4c09-bf48-50683bca7047",
+          "width": 0,
+          "x": 1120,
+          "y": 360,
+          "zOrder": 10,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "depth": 1,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "LetreroClasificacion",
+          "persistentUuid": "17669aca-604b-4dc1-b4a3-f3d0f544f4a5",
+          "width": 0,
+          "x": 580,
+          "y": 220,
+          "zOrder": 12,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "depth": 1,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "PuertaSustantivo",
+          "persistentUuid": "58ba1bb9-89be-432d-91cd-e53eb7d7c724",
+          "width": 0,
+          "x": 420,
+          "y": 140,
+          "zOrder": 12,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "depth": 1,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "PuertaVerbo",
+          "persistentUuid": "892f0eae-cf1d-42c0-ad42-e5c18764d198",
+          "width": 0,
+          "x": 950,
+          "y": 140,
+          "zOrder": 12,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 42,
+          "keepRatio": true,
+          "layer": "",
+          "name": "ItemVidaExtra",
+          "persistentUuid": "d8119597-a064-4388-a3d0-0df3b20feeba",
+          "width": 42,
+          "x": 920,
+          "y": 700,
+          "zOrder": 10,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "depth": 1,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "PortalSalida",
+          "persistentUuid": "5b137aba-7895-492a-af3d-4a79021d5e0d",
+          "width": 0,
+          "x": 620,
+          "y": 260,
+          "zOrder": 10,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "b": 25,
+      "disableInputWhenNotFocused": true,
+      "mangledName": "Zona2_OracionesAdjetivos",
+      "name": "Zona2_OracionesAdjetivos",
+      "r": 15,
+      "standardSortMethod": true,
+      "stopGDOnItemGroupInstances": false,
+      "title": "Zona 2 - Comprension y Adjetivos",
+      "v": 25,
+      "uiSettings": {
+        "grid": false,
+        "gridType": "rectangular",
+        "gridWidth": 32,
+        "gridHeight": 32,
+        "snap": false
+      },
+      "layers": [
+        {
+          "name": "",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": [],
+          "isLightingLayer": false,
+          "followBaseLayerCamera": false
+        }
+      ],
+      "objects": [
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "Fondo",
+          "persistentUuid": "8bdfb13d-bb17-4ab9-91ee-39caea54c99d",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "Default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 1,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "submundo4_comprension_oraciones.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "Crey",
+          "persistentUuid": "9f294a34-8c61-4b25-86db-faeb41c663b2",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "TopDownMovement",
+              "type": "TopDownMovementBehavior::TopDownMovementBehavior",
+              "allowDiagonals": true,
+              "acceleration": 2200,
+              "deceleration": 2200,
+              "maxSpeed": 320,
+              "angleOffset": 0,
+              "rotateObject": false
+            }
+          ],
+          "animations": [
+            {
+              "name": "Idle",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "crey.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "TextoOracion",
+          "persistentUuid": "43ddfaf0-4639-41d6-a417-370911dfb137",
+          "type": "TextObject::Text",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "La flor es muy ______.",
+          "characterSize": 28,
+          "color": "255;255;255",
+          "bold": true
+        },
+        {
+          "assetStoreId": "",
+          "name": "OpcionCorrecta",
+          "persistentUuid": "503b6d76-f46e-4ac9-8156-0ccbe58117c2",
+          "type": "TextObject::Text",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "hermosa (Correcta)",
+          "characterSize": 24,
+          "color": "16;185;129",
+          "bold": true
+        },
+        {
+          "assetStoreId": "",
+          "name": "OpcionDistractor1",
+          "persistentUuid": "6d252412-da72-4ad1-94f6-4b0b26936619",
+          "type": "TextObject::Text",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "jardin (Incorrecta)",
+          "characterSize": 24,
+          "color": "239;68;68",
+          "bold": true
+        },
+        {
+          "assetStoreId": "",
+          "name": "OpcionDistractor2",
+          "persistentUuid": "6446c541-3872-4a43-af88-1d29b588aa9e",
+          "type": "TextObject::Text",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "correr (Incorrecta)",
+          "characterSize": 24,
+          "color": "239;68;68",
+          "bold": true
+        },
+        {
+          "assetStoreId": "",
+          "name": "ItemAdjetivo1",
+          "persistentUuid": "1f0337f3-9b59-45a2-ba62-d86750c209bb",
+          "type": "TextObject::Text",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Bonito (Adjetivo)",
+          "characterSize": 22,
+          "color": "56;189;248",
+          "bold": true
+        },
+        {
+          "assetStoreId": "",
+          "name": "ItemAdjetivo2",
+          "persistentUuid": "1ff18a0a-9417-4bb1-b104-ab5a41d68318",
+          "type": "TextObject::Text",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Grande (Adjetivo)",
+          "characterSize": 22,
+          "color": "56;189;248",
+          "bold": true
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "ItemVidaExtra",
+          "persistentUuid": "2677094d-d307-46bf-ba75-208ab19adbd7",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "Default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.1,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "vidaextra.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "PortalVictoria",
+          "persistentUuid": "a27d1b4e-ee18-4554-b2ff-02c6134e74bb",
+          "type": "TextObject::Text",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "PORTAL VICTORIA FINAL",
+          "characterSize": 26,
+          "color": "245;158;11",
+          "bold": true
+        }
+      ],
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 1122,
+          "keepRatio": true,
+          "layer": "",
+          "name": "Fondo",
+          "persistentUuid": "be23dece-d661-4781-9e33-e90e906ae6de",
+          "width": 1402,
+          "x": 0,
+          "y": 0,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 72,
+          "keepRatio": true,
+          "layer": "",
+          "name": "Crey",
+          "persistentUuid": "8c9f3c51-6097-44cb-bf9d-caf7141e03f3",
+          "width": 64,
+          "x": 670,
+          "y": 920,
+          "zOrder": 15,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "depth": 1,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "TextoOracion",
+          "persistentUuid": "233dcbc1-1e8a-4663-91c1-98d7aeb97637",
+          "width": 0,
+          "x": 520,
+          "y": 480,
+          "zOrder": 12,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "depth": 1,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "OpcionCorrecta",
+          "persistentUuid": "cddec8e5-448f-4b6a-9799-61c8a1d5aa72",
+          "width": 0,
+          "x": 450,
+          "y": 560,
+          "zOrder": 12,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "depth": 1,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "OpcionDistractor1",
+          "persistentUuid": "39c6525b-605d-44f9-842c-e22b7aee54f2",
+          "width": 0,
+          "x": 700,
+          "y": 560,
+          "zOrder": 12,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "depth": 1,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "OpcionDistractor2",
+          "persistentUuid": "9107807a-b548-4558-b4f4-1548b7916d9e",
+          "width": 0,
+          "x": 950,
+          "y": 560,
+          "zOrder": 12,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "depth": 1,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "ItemAdjetivo1",
+          "persistentUuid": "9a2fb814-9bb2-4dcf-b78e-fde57b78793b",
+          "width": 0,
+          "x": 260,
+          "y": 320,
+          "zOrder": 10,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "depth": 1,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "ItemAdjetivo2",
+          "persistentUuid": "7e552206-fe36-472b-ad8a-34032a88eaa2",
+          "width": 0,
+          "x": 320,
+          "y": 660,
+          "zOrder": 10,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 42,
+          "keepRatio": true,
+          "layer": "",
+          "name": "ItemVidaExtra",
+          "persistentUuid": "8e6a23d5-e7b3-4a42-93a9-cf7e81fbf0ae",
+          "width": 42,
+          "x": 260,
+          "y": 800,
+          "zOrder": 10,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "depth": 1,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "PortalVictoria",
+          "persistentUuid": "bed902e2-724f-4267-b6fe-6654488f9771",
+          "width": 0,
+          "x": 560,
+          "y": 240,
+          "zOrder": 10,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        }
+      ],
+      "events": []
+    }
+  ],
+  "externalEvents": [],
+  "eventsFunctionsExtensions": [],
+  "externalLayouts": []
+}
